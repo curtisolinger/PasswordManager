@@ -24,7 +24,6 @@ def gen_pass():
     password_entry.insert(0, password)
     pyperclip.copy(password)
 
-    # print(f"Your password is: {password}")
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_pass():
     website = website_entry.get()
@@ -34,7 +33,7 @@ def save_pass():
     if len(website) == 0 or len(email) == 0 or len(password) == 3:
         messagebox.showinfo(title="Missing info", message="Please enter all info")
     else:
-        is_ok = messagebox.askokcancel(title=website, message=f"These are the detailed entered: \n Email: {email} "
+        is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \n Email: {email} "
                                                               f"\nPassword: {password}\nIs it ok to save?")
         if is_ok:
             try:
@@ -57,22 +56,6 @@ def save_pass():
                     connection.close()
                     print("The sqlite connection is closed")
 
-
-
-    # messagebox.showinfo(title="Success", message="Success")
-
-
-
-
-
-    # Create data table
-
-    # row = [website, email, password]
-    #
-    # with open("passwords.csv", mode="a") as file:
-    #     csvwriter = csv.writer(file)
-    #     csvwriter.writerow(row)
-
     website_entry.delete(0, END)
     password_entry.delete(0,END)
 
@@ -85,11 +68,9 @@ window.config(padx=50, pady=50)
 canvas = Canvas(width=200, height=200)
 lock_img = PhotoImage(file='logo.png')
 canvas.create_image(100, 100, image=lock_img)
-# canvas.grid(row=1, column=1)
 canvas.grid(row=0, column=1)
 
 # Labels
-# website_label = Label(text='Website:', font=(FONT_NAME, FONT_SIZE))
 website_label = Label(text='Website:')
 website_label.grid(row=1, column=0)
 
